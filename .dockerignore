@@ -1,8 +1,6 @@
-venv
-.vscode
-__pycache__
-migrations
+**/venv
+**/__pycache__
+**/migrations
 
 zuman/zuman/static/profile_pics/*
 !zuman/zuman/static/profile_pics/zuman.jpg
-conf.py

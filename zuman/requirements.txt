@@ -1,0 +1,10 @@
+flask
+flask_bcrypt
+flask_login
+flask_mail
+flask_migrate
+flask_session
+flask_wtf
+python-memcached
+email_validator
+pillow
