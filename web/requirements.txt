@@ -7,7 +7,7 @@ flask_mail
 flask_migrate
 flask_session
 flask_wtf
-itsdangerous==1.1.0
-MarkupSafe==1.1.1
+itsdangerous
+MarkupSafe
 pillow
 python-memcached

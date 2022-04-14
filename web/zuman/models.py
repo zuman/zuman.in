@@ -3,7 +3,7 @@ from secrets import token_hex
 
 from flask import current_app
 from flask_login import UserMixin
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from itsdangerous import URLSafeTimedSerializer as Serializer
 
 from zuman import db, login_manager
 from zuman.utils import create_str
