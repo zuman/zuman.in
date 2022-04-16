@@ -1,9 +1,21 @@
-import json
-from zuman.conf import conf
 
-if 'CONFIG_FILE' in conf:
-    with open(conf['CONFIG_FILE']) as config_file:
-        conf = json.load(config_file)
+import json
+import os
+
+import memcache
+
+from zuman import constants
+
+conf = {}
+if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
+    conf['CONFIG_FILE'] = os.getcwd() + "/web/config/conf.json"
+else:
+    conf['CONFIG_FILE'] = "/var/zuman.one/conf.json"
+
+with open(conf['CONFIG_FILE']) as config_file:
+    conf = json.load(config_file)
+    if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
+        conf['SESSION_MEMCACHED'] = "localhost:11211"
 
 
 class Config:
@@ -17,6 +29,7 @@ class Config:
     MAIL_PASSWORD = conf['MAIL_PASSWORD']
     LOG_LEVEL = conf['LOG_LEVEL']
     SESSION_TYPE = conf['SESSION_TYPE']
+    SESSION_MEMCACHED = memcache.Client([conf['SESSION_MEMCACHED']])
     SESSION_COOKIE_NAME = conf['SESSION_COOKIE_NAME']
     SESSION_COOKIE_SECURE = conf['SESSION_COOKIE_SECURE']
     PERMANENT_SESSION_LIFETIME = conf['PERMANENT_SESSION_LIFETIME']

@@ -2,5 +2,5 @@
 **/__pycache__
 **/migrations
 
-zuman/zuman/static/profile_pics/*
-!zuman/zuman/static/profile_pics/zuman.jpg
+zuman/static/profile_pics/*
+!zuman/static/profile_pics/zuman.jpg

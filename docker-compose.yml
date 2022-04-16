@@ -4,3 +4,12 @@ services:
     build: web
     ports:
       - "5000:5000"
+    volumes:
+      - ./web/config:/var/zuman.one
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    links:
+      - memcached
+  memcached:
+    image: memcached

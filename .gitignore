@@ -2,9 +2,9 @@ venv
 .vscode
 __pycache__
 migrations
+config
 
 zuman/zuman/static/profile_pics/*
 !zuman/zuman/static/profile_pics/zuman.jpg
 
-conf.py
 .DS_Store
