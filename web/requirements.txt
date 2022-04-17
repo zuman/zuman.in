@@ -11,3 +11,4 @@ itsdangerous
 MarkupSafe
 pillow
 python-memcached
+uwsgi

@@ -4,12 +4,14 @@ RUN mkdir /app
 
 WORKDIR /app
 
+RUN apt -y update && apt install -y gcc
 RUN pip install --upgrade pip
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY zuman zuman
 COPY main.py .
+COPY uwsgi.ini .
 
 ENTRYPOINT [ "python" ]
 
