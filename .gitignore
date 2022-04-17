@@ -3,8 +3,10 @@ venv
 __pycache__
 migrations
 config
+db/data
 
 zuman/zuman/static/profile_pics/*
 !zuman/zuman/static/profile_pics/zuman.jpg
 
 .DS_Store
+.env

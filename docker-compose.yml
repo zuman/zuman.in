@@ -1,5 +1,6 @@
 version: '3.9'
 services:
+
   web:
     build: web
     ports:
@@ -7,9 +8,21 @@ services:
     volumes:
       - ./web/config:/var/zuman.one
     environment:
-      - FLASK_ENV=development
-      - FLASK_DEBUG=1
+      - FLASK_ENV=${FLASK_ENV}
+      - FLASK_DEBUG=${FLASK_DEBUG}
     links:
       - memcached
+      - db
+
   memcached:
     image: memcached
+
+  db:
+    image: postgres:alpine
+    ports:
+      - "2345:5432"
+    volumes:
+      - ./db/data:/var/zuman.one/data
+    environment:
+      - PGDATA=/var/zuman.one/data/pgdata
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
