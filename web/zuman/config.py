@@ -7,10 +7,12 @@ from zuman import constants
 
 conf = {}
 if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
-    conf['SESSION_MEMCACHED'] = "localhost:11211"
+    conf['SESSION_MEMCACHED'] = constants.LOCALHOST + ":11211"
+    conf["SQLALCHEMY_DATABASE_URI"] = os.getenv('SQLALCHEMY_DATABASE_URI').replace("DB_HOST", constants.LOCALHOST)
 else:
     conf['SESSION_MEMCACHED'] = os.getenv('SESSION_MEMCACHED')
-conf["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI").replace("DB_PASS", os.getenv('POSTGRES_PASSWORD'))
+    conf["SQLALCHEMY_DATABASE_URI"] = os.getenv('SQLALCHEMY_DATABASE_URI').replace("DB_HOST", "db")
+conf["SQLALCHEMY_DATABASE_URI"] = conf["SQLALCHEMY_DATABASE_URI"].replace("DB_PASS", os.getenv('POSTGRES_PASSWORD'))
 
 
 class Config:

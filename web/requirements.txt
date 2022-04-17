@@ -12,4 +12,5 @@ markupsafe
 sqlalchemy
 pillow
 psycopg2-binary
+python-dotenv
 python-memcached
