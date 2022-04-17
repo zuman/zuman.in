@@ -14,8 +14,10 @@ else:
 
 with open(conf['CONFIG_FILE']) as config_file:
     conf = json.load(config_file)
+
     if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
         conf['SESSION_MEMCACHED'] = "localhost:11211"
+    conf["SQLALCHEMY_DATABASE_URI"] = conf["SQLALCHEMY_DATABASE_URI"].replace("DB_PASS", os.getenv('DB_PASS'))
 
 
 class Config:

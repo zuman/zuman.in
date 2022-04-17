@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY zuman zuman
 COPY main.py .
+COPY db-sync .
 
 ENTRYPOINT [ "python" ]
 

@@ -7,10 +7,13 @@ services:
       - "5000:5000"
     volumes:
       - ./web/config:/var/zuman.one
+      - ./db/migrations:/app/migrations
     environment:
+      - FLASK_APP=main.py
       - FLASK_ENV=${FLASK_ENV}
       - FLASK_DEBUG=${FLASK_DEBUG}
-    links:
+      - DB_PASS=${POSTGRES_PASSWORD}
+    depends_on:
       - memcached
       - db
 
@@ -23,6 +26,7 @@ services:
       - "2345:5432"
     volumes:
       - ./db/data:/var/zuman.one/data
+      - ./db/init:/docker-entrypoint-initdb.d
     environment:
       - PGDATA=/var/zuman.one/data/pgdata
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}

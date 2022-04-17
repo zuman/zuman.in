@@ -1,12 +1,12 @@
 venv
 .vscode
 __pycache__
-migrations
 config
-db/data
+db/*
+!db/init
 
-zuman/zuman/static/profile_pics/*
-!zuman/zuman/static/profile_pics/zuman.jpg
+web/zuman/static/profile_pics/*
+!web/zuman/static/profile_pics/zuman.jpg
 
 .DS_Store
 .env

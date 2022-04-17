@@ -8,6 +8,8 @@ flask_migrate
 flask_session
 flask_wtf
 itsdangerous
-MarkupSafe
+markupsafe
+sqlalchemy
 pillow
+psycopg2-binary
 python-memcached
