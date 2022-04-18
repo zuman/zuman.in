@@ -4,8 +4,8 @@ __pycache__
 db/*
 !db/init
 
-web/zuman/static/profile_pics/*
-!web/zuman/static/profile_pics/zuman.jpg
+api/zuman/static/profile_pics/*
+!api/zuman/static/profile_pics/zuman.jpg
 
 .DS_Store
 .env

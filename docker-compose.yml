@@ -1,8 +1,8 @@
 version: '3.9'
 services:
 
-  web:
-    build: web
+  api:
+    build: api
     volumes:
       - ./db/migrations:/app/migrations
     env_file:
@@ -33,5 +33,5 @@ services:
     volumes:
       - ./proxy:/etc/nginx/conf.d/
     depends_on:
-      - web
+      - api
       - db
