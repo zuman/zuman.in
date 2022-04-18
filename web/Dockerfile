@@ -12,8 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY zuman zuman
 COPY main.py .
 COPY db-sync .
-COPY uwsgi.ini .
 
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "gunicorn" ]
 
-CMD [ "main.py" ]
+CMD ["-w 9", "-b", "0.0.0.0:8000", "main:app"]

@@ -7,6 +7,7 @@ flask_mail
 flask_migrate
 flask_session
 flask_wtf
+gunicorn
 itsdangerous
 markupsafe
 sqlalchemy
@@ -14,4 +15,3 @@ pillow
 psycopg2-binary
 python-dotenv
 python-memcached
-uwsgi
