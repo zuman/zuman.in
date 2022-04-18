@@ -3,8 +3,6 @@ services:
 
   web:
     build: web
-    ports:
-      - "5000:5000"
     volumes:
       - ./db/migrations:/app/migrations
     env_file:
@@ -26,3 +24,15 @@ services:
     environment:
       - PGDATA=/var/zuman.one/data/pgdata
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+
+  proxy:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./proxy:/etc/nginx/conf.d/
+    depends_on:
+      - web
+      - db
+      - memcached
