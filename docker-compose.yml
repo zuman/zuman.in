@@ -1,18 +1,17 @@
 version: '3.9'
 services:
 
-  api:
+  zuman-api:
     build: api
     volumes:
       - ./db/migrations:/app/migrations
     env_file:
       - .env
     depends_on:
-      - memcached
       - db
-
-  memcached:
-    image: memcached
+    networks:
+      - proxy-network
+      - zuman-network
 
   db:
     image: postgres:alpine
@@ -24,14 +23,11 @@ services:
     environment:
       - PGDATA=/var/zuman.one/data/pgdata
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+    networks:
+      - zuman-network
 
-  proxy:
-    image: nginx:alpine
-    restart: always
-    ports:
-      - "80:80"
-    volumes:
-      - ./proxy:/etc/nginx/conf.d/
-    depends_on:
-      - api
-      - db
+networks:
+  proxy-network:
+    external: true
+  zuman-network:
+    external: false
