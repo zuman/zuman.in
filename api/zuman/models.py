@@ -24,17 +24,17 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(50), nullable=False, default=default_pic)
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship("Post", backref="author", lazy=True)
-    sid = db.Column(db.String(36), nullable=False, unique=True, default='no_login'+token_hex(14))
+    sid = db.Column(db.String(36), nullable=False, unique=True, default='no_login' + token_hex(14))
 
-    def get_reset_token(self, expires=1800):
-        s = Serializer(current_app.config["SECRET_KEY"], expires)
-        return s.dumps({'user_id': self.id}).decode('utf-8')
+    def get_reset_token(self):
+        s = Serializer(current_app.config["SECRET_KEY"], current_app.config['SALT'])
+        return s.dumps({'user_id': self.id})
 
     @staticmethod
     def verify_reset_token(token):
-        s = Serializer(current_app.config["SECRET_KEY"])
+        s = Serializer(current_app.config["SECRET_KEY"], current_app.config['SALT'])
         try:
-            user_id = s.loads(token)['user_id']
+            user_id = s.loads(token, max_age=1800)['user_id']
         except:
             return None
         return User.query.get(user_id)

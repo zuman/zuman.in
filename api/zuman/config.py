@@ -17,6 +17,7 @@ conf["SQLALCHEMY_DATABASE_URI"] = conf["SQLALCHEMY_DATABASE_URI"].replace("DB_PA
 
 class Config:
     SECRET_KEY = os.getenv("SECRET_KEY")
+    SALT = os.getenv("SALT")
     LOG_LEVEL = os.getenv("LOG_LEVEL")
 
     SQLALCHEMY_DATABASE_URI = conf["SQLALCHEMY_DATABASE_URI"]
