@@ -4,7 +4,7 @@ Source code to my personal website !
 [zuman.in](https://zuman.in)
 
 ## Setup notes:
-Create a **.env** file in **root** directory similar to the one mentioned below.
+### 1. Create a **.env** file in **root** directory similar to the one mentioned below.
 
 >**.env**
 ```

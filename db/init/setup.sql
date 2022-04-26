@@ -1,2 +1,2 @@
-create database zuman_a;
-ALTER DATABASE zuman_a SET timezone TO 'Asia/Kolkata';
+create database zuman_one;
+ALTER DATABASE zuman_one SET timezone TO 'Asia/Kolkata';
