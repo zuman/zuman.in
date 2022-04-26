@@ -39,14 +39,21 @@ FLASK_DEBUG=...
 # 0 for production, 1 for development
 ```
 
-### 2. Run docker-compose.yml
+### 2. Create an external network
+```
+docker network create --attachable proxy-network
+```
+
+### 3. Run docker-compose.yml
 
 ```
 docker compose up -d
 ```
 
-### 3. Initialize the database
+### 4. Initialize the database
 
 ```
+sudo rm -rf db/migrations/
+sudo rm -rf db/data/
 docker exec -it zumanin-zuman-api-1 sh /app/db-sync
 ```
