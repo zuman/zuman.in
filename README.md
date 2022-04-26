@@ -1,7 +1,7 @@
-# zuman.in
+# zuman.one
 Source code to my personal website !
 
-[zuman.in](https://zuman.in)
+[zuman.one](https://zuman.one)
 
 ## Setup notes:
 ### 1. Create a **.env** file in **root** directory similar to the one mentioned below.
@@ -37,4 +37,16 @@ FLASK_APP=main.py
 FLASK_ENV=...
 FLASK_DEBUG=...
 # 0 for production, 1 for development
+```
+
+### 2. Run docker-compose.yml
+
+```
+docker compose up -d
+```
+
+### 3. Initialize the database
+
+```
+docker exec -it zumanin-zuman-api-1 sh /app/db-sync
 ```
