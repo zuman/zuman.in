@@ -2,6 +2,8 @@ services:
 
   zuman-api:
     build: api
+    ports:
+      - "8000:8000"
     volumes:
       - ./db/migrations:/app/migrations
     env_file:
