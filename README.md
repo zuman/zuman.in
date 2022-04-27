@@ -47,6 +47,7 @@ docker network create --attachable proxy-network
 ### 3. Run docker-compose.yml
 
 ```
+export POSTGRES_PASSWORD=... # from .env
 docker compose up -d
 ```
 
