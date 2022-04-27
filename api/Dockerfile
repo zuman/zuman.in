@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-RUN apt -y update && apt install -y gcc build-essential libpq-dev
+RUN apt -y update && apt install -y build-essential libpq-dev
 RUN pip install --upgrade pip
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt

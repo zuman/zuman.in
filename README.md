@@ -47,6 +47,8 @@ docker network create --attachable proxy-network
 ### 3. Run docker-compose.yml
 
 ```
+sudo rm -rf db/migrations/
+sudo rm -rf db/data/
 export POSTGRES_PASSWORD=... # from .env
 docker compose up -d
 ```
@@ -54,7 +56,5 @@ docker compose up -d
 ### 4. Initialize the database
 
 ```
-sudo rm -rf db/migrations/
-sudo rm -rf db/data/
 docker exec -it zumanin-zuman-api-1 sh /app/db-sync
 ```
