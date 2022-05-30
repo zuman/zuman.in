@@ -1,6 +1,7 @@
 import json
+import os
 
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, send_from_directory, current_app
 from flask_login import current_user, login_required
 from zuman import appdata, db
 from zuman.utils import updateSession
@@ -22,6 +23,13 @@ def home():
 def brave():
     appdata["title"] = None
     return render_template("brave-rewards-verification.txt")
+
+
+@main.route("/resume")
+def resume():
+    appdata["title"] = "Resume"
+    filepath = os.path.join(current_app.root_path, 'static/files')
+    return send_from_directory(filepath, 'resume.pdf')
 
 
 @main.route("/api")
