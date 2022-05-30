@@ -44,9 +44,10 @@ FLASK_DEBUG=...
 docker network create --attachable proxy-network
 ```
 
-### 3. Run docker-compose.yml
+### 3. Build image and run docker compose
 
 ```
+docker build api -t api
 sudo rm -rf db/migrations/
 sudo rm -rf db/data/
 export POSTGRES_PASSWORD=... # from .env

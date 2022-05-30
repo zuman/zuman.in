@@ -1,7 +1,7 @@
 services:
 
   zuman-api:
-    build: api
+    image: api
     restart: always
     ports:
       - "8000:8000"
