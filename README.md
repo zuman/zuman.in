@@ -37,6 +37,8 @@ FLASK_APP=main.py
 FLASK_ENV=...
 FLASK_DEBUG=...
 # 0 for production, 1 for development
+
+DOCKER_DEFAULT_PLATFORM=linux/amd64
 ```
 
 ### 2. Create an external network
@@ -57,5 +59,7 @@ docker compose up -d
 ### 4. Initialize the database
 
 ```
-docker exec -it zumanin-zuman-api-1 sh /app/db-sync
+docker exec -it zumanone-zuman-api-1 sh /app/db-sync
 ```
+
+### 5. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
