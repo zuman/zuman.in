@@ -62,8 +62,9 @@
 
             <div class="collapse navbar-collapse" id="navToggler">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link smoothScroll" href="{{url_for('posts.inclause')}}">In-Clause</a>
+                    <a class="nav-item nav-link smoothScroll" href="{{url_for('main.resume')}}">Resume</a>
                     <a class="nav-item nav-link smoothScroll" href="/#contact">Contact</a>
+                    <a class="nav-item nav-link smoothScroll" href="{{url_for('posts.inclause')}}">In-Clause</a>
                 </div>
                 <div class="navbar-nav">
                     {% if current_user.is_authenticated %}
