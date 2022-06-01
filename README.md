@@ -63,3 +63,8 @@ docker exec -it zumanone-zuman-api-1 sh /app/db-sync
 ```
 
 ### 5. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
+
+### 6. Restart the stack
+```
+docker-compose restart
+```
