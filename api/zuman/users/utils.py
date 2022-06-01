@@ -4,7 +4,7 @@ import secrets
 from flask import current_app, url_for
 from flask_mail import Message
 from PIL import Image
-from zuman import mail
+from zuman import mail, constants
 
 
 def save_picture(form_picture):
@@ -34,8 +34,11 @@ def send_reset_email(user):
         'Password Reset Request',
         sender='noreply@zuman.ml',
         recipients=[user.email])
+    if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
+        url = url_for('users.reset_token', token=token, _external=True)
+    else:
+        url = f"https://{os.getenv('SERVER_NAME')}{url_for('users.reset_token', token=token)}"
     msg.body = f'''To reset your password, visit:
-{url_for('users.reset_token', token=token, _external=True)}
-Ignore if not requested by you.
-'''
+        {url}
+        Ignore if not requested by you.'''
     mail.send(msg)
