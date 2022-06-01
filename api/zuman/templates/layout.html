@@ -23,7 +23,7 @@
     <title>{{appdata['website_name']}}</title>
     {%endif%}
 
-    <script src="https://kit.fontawesome.com/7702e7e847.js"></script>
+    <script src="https://kit.fontawesome.com/7702e7e847.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -62,7 +62,8 @@
 
             <div class="collapse navbar-collapse" id="navToggler">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link smoothScroll" href="{{url_for('main.resume')}}">Resume</a>
+                    <a class="nav-item nav-link smoothScroll" target="_blank"
+                        href="{{url_for('main.resume')}}">Résumé</a>
                     <a class="nav-item nav-link smoothScroll" href="/#contact">Contact</a>
                     <a class="nav-item nav-link smoothScroll" href="{{url_for('posts.inclause')}}">In-Clause</a>
                 </div>
@@ -115,8 +116,6 @@
                         </p>
                     </div>
                     <ul class="wow fadeInUp social-icon" data-wow-delay="2s">
-                        <li><a target="_blank" href="https://facebook.com/zuman007" class="fab fa-facebook"></a>
-                        </li>
                         <li><a target="_blank" href="https://twitter.com/zuman007" class="fab fa-twitter"></a>
                         </li>
                         <li><a target="_blank" href="https://github.com/zuman" class="fab fa-github"></a></li>
