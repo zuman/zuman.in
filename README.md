@@ -50,8 +50,6 @@ docker network create --attachable proxy-network
 
 ```
 docker build api -t api
-sudo rm -rf db/migrations/
-sudo rm -rf db/data/
 export POSTGRES_PASSWORD=... # from .env
 docker compose up -d
 ```
@@ -66,5 +64,7 @@ docker exec -it zumanone-zuman-api-1 sh /app/db-sync
 
 ### 6. Restart the stack
 ```
-docker-compose restart
+docker build api -t api     # If you recently changed the code
+docker compose down
+docker compose up -d
 ```
