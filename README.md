@@ -50,22 +50,22 @@ docker network create --attachable proxy-network
 ### 3. Build image and run docker compose
 
 ```
-docker build api -t api
 export POSTGRES_PASSWORD=... # from .env
+docker build api -t one.zuman.api
 docker compose up -d
 ```
 
 ### 4. Initialize the database
 
 ```
-docker exec -it zumanone-zuman-api-1 sh /app/db-sync
+docker exec -it zumanone-api-1 sh /app/db-sync
 ```
 
 ### 5. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
 
 ### 6. Restart the stack
 ```
-docker build api -t api     # If you recently changed the code
+docker build api -t one.zuman.api     # If you recently changed the code
 docker compose down
 docker compose up -d
 ```
