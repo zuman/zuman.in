@@ -1,7 +1,7 @@
 services:
 
-  zuman-api:
-    image: api
+  api:
+    image: one.zuman.api
     restart: always
     ports:
       - "8000:8000"

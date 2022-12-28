@@ -19,12 +19,6 @@ def home():
     return render_template("home.html", appdata=appdata, no_container=no_container)
 
 
-@main.route("/.well-known/brave-rewards-verification.txt")
-def brave():
-    appdata["title"] = None
-    return render_template("brave-rewards-verification.txt")
-
-
 @main.route("/resume")
 def resume():
     appdata["title"] = "Resume"
