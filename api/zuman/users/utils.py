@@ -37,7 +37,7 @@ def send_reset_email(user):
     if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
         url = url_for('users.reset_token', token=token, _external=True)
     else:
-        protocol = "https" if {os.getenv('SESSION_COOKIE_SECURE')} == "True" else "http"
+        protocol = "https" if os.getenv('SESSION_COOKIE_SECURE') == "True" else "http"
         url = f"{protocol}://{os.getenv('SERVER_NAME')}{url_for('users.reset_token', token=token)}"
     msg.body = f'''To reset your password, visit:
         {url}
