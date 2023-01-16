@@ -32,12 +32,13 @@ def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message(
         'Password Reset Request',
-        sender='noreply@zuman.ml',
+        sender=f"noreply@{os.getenv('SERVER_NAME')}",
         recipients=[user.email])
     if os.getenv('FLASK_APP') == constants.FLASK_APP_DEV:
         url = url_for('users.reset_token', token=token, _external=True)
     else:
-        url = f"https://{os.getenv('SERVER_NAME')}{url_for('users.reset_token', token=token)}"
+        protocol = "https" if {os.getenv('SESSION_COOKIE_SECURE')} == "True" else "http"
+        url = f"{protocol}://{os.getenv('SERVER_NAME')}{url_for('users.reset_token', token=token)}"
     msg.body = f'''To reset your password, visit:
         {url}
         Ignore if not requested by you.'''
