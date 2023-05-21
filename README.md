@@ -12,6 +12,7 @@ SECRET_KEY=...
 SALT=...
 PORT=...
 SERVER_NAME=...
+COMPOSE_PROJECT_NAME=...
 LOG_LEVEL=...
 #DEBUG, INFO, WARNING, ERROR, CRITICAL
 
@@ -52,6 +53,7 @@ docker network create --attachable proxy-network
 
 ```
 export POSTGRES_PASSWORD=... # from .env
+export COMPOSE_PROJECT_NAME=...-api-1 # from .env (Don't forget to append "-api-1")
 docker build api -t one.zuman.api
 docker compose up -d
 ```
@@ -59,7 +61,7 @@ docker compose up -d
 ### 4. Initialize the database
 
 ```
-docker exec -it zumanone-api-1 sh /app/db-sync
+docker exec -it $COMPOSE_PROJECT_NAME sh /app/db-sync
 ```
 
 ### 5. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
