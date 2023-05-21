@@ -1,7 +1,6 @@
 import json
-import os
 
-from flask import Blueprint, render_template, send_from_directory, current_app
+from flask import Blueprint, render_template
 from flask_login import current_user, login_required
 from zuman import appdata, db
 from zuman.utils import updateSession
