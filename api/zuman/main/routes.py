@@ -19,11 +19,11 @@ def home():
     return render_template("home.html", appdata=appdata, no_container=no_container)
 
 
-@main.route("/resume")
-def resume():
-    appdata["title"] = "Resume"
-    filepath = os.path.join(current_app.root_path, 'static/files')
-    return send_from_directory(filepath, 'resume.pdf')
+# @main.route("/resume")
+# def resume():
+#     appdata["title"] = "Resume"
+#     filepath = os.path.join(current_app.root_path, 'static/files')
+#     return send_from_directory(filepath, 'resume.pdf')
 
 
 @main.route("/api")
