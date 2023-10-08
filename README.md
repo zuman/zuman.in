@@ -54,7 +54,7 @@ docker network create --attachable proxy-network
 ```
 export POSTGRES_PASSWORD=... # from .env
 export COMPOSE_API_NAME=...-api-1 # from .env (Don't forget to append "-api-1")
-export FLASK_ENV=beta
+export FLASK_ENV=... # from .env
 docker build api -t one.zuman.api:$FLASK_ENV
 docker compose up -d
 ```
