@@ -1,7 +1,7 @@
 services:
 
   api:
-    image: one.zuman.api
+    image: one.zuman.api:$FLASK_ENV
     restart: always
     ports:
       - "$PORT:8000"

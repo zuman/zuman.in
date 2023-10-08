@@ -54,7 +54,8 @@ docker network create --attachable proxy-network
 ```
 export POSTGRES_PASSWORD=... # from .env
 export COMPOSE_API_NAME=...-api-1 # from .env (Don't forget to append "-api-1")
-docker build api -t one.zuman.api
+export FLASK_ENV=... # from .env
+docker build api -t one.zuman.api:$FLASK_ENV
 docker compose up -d
 ```
 
@@ -68,7 +69,7 @@ docker exec -it $COMPOSE_API_NAME sh /app/db-sync
 
 ### 6. Restart the stack
 ```
-docker build api -t one.zuman.api     # If you recently changed the code
+docker build api -t one.zuman.api:$FLASK_ENV     # If you recently changed the code
 docker compose down
 docker compose up -d
 ```
