@@ -48,7 +48,7 @@ DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 ```
 export POSTGRES_PASSWORD=... # from .env
-export COMPOSE_API_NAME=...-api-1 # from .env (Don't forget to append "-api-1")
+export COMPOSE_API_NAME=...-api-1 # Use COMPOSE_PROJECT_NAME from .env (Don't forget to append "-api-1")
 export FLASK_ENV=... # from .env
 docker build api -t one.zuman.api:$FLASK_ENV
 docker compose up -d
