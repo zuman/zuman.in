@@ -13,7 +13,7 @@ services:
     depends_on:
       - db
     networks:
-      - proxy-network
+      - common-proxy_default
       - zuman-network
 
   db:
@@ -29,7 +29,7 @@ services:
       - zuman-network
 
 networks:
-  proxy-network:
+  common-proxy_default:
     external: true
   zuman-network:
     external: false

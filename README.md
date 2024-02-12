@@ -44,30 +44,25 @@ FLASK_DEBUG=...
 DOCKER_DEFAULT_PLATFORM=linux/amd64
 ```
 
-### 2. Create an external network
-```
-docker network create --attachable proxy-network
-```
-
-### 3. Build image and run docker compose
+### 2. Build image and run docker compose
 
 ```
 export POSTGRES_PASSWORD=... # from .env
-export COMPOSE_API_NAME=...-api-1 # from .env (Don't forget to append "-api-1")
+export COMPOSE_API_NAME=...-api-1 # Use COMPOSE_PROJECT_NAME from .env (Don't forget to append "-api-1")
 export FLASK_ENV=... # from .env
 docker build api -t one.zuman.api:$FLASK_ENV
 docker compose up -d
 ```
 
-### 4. Initialize the database
+### 3. Initialize the database
 
 ```
 docker exec -it $COMPOSE_API_NAME sh /app/db-sync
 ```
 
-### 5. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
+### 4. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
 
-### 6. Restart the stack
+### 5. Restart the stack
 ```
 docker build api -t one.zuman.api:$FLASK_ENV     # If you recently changed the code
 docker compose down
