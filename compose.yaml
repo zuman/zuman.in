@@ -12,6 +12,7 @@ services:
       - .env
     depends_on:
       - db
+      - mc
     networks:
       - common-proxy_default
       - zuman-network
@@ -25,6 +26,12 @@ services:
     environment:
       - PGDATA=/var/zuman.one/data/pgdata
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+    networks:
+      - zuman-network
+
+  mc:
+    image: memcached
+    restart: always
     networks:
       - zuman-network
 
