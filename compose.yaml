@@ -12,6 +12,7 @@ services:
       - .env
     depends_on:
       - db
+      - memcached
     networks:
       - common-proxy_default
       - zuman-network
