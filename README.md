@@ -62,17 +62,7 @@ docker exec -it $COMPOSE_API_NAME sh /app/db-sync
 
 ### 4. Create a proxy server from [common-proxy](https://github.com/zuman/common-proxy)
 
-### 5. Create a global memcached container if it doesn't exist.
-
-* Check if the container exists
-    > docker ps -f name=memcached
-* If it doesn't exist, create a new one and attach the default network.
-    ```
-    docker run -d --name memcached --restart=always memcached
-    docker network connect common-proxy_default memcached
-    ```
-
-### 6. Restart the stack
+### 5. Restart the stack
 ```
 docker build api -t one.zuman.api:$FLASK_ENV     # If you recently changed the code
 docker compose down
